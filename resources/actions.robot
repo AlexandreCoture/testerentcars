@@ -8,10 +8,10 @@ Library     SeleniumLibrary
 ##Helpers
 
 Open Chrome
-        Open Browser        https://site.stage.rentcars.com     chrome    options=add_experimental_option('excludeSwitches', ['enable-logging'])
+        Open Browser        https://site.stage.rentcars.com/pt-br/     chrome    options=add_experimental_option('excludeSwitches', ['enable-logging'])
 
 Open Chrome Headless
-        Open Browser        https://site.stage.rentcars.com     headlesschrome
+        Open Browser        https://site.stage.rentcars.com/pt-br/     headlesschrome
 
 ##Hooks
 
