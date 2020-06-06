@@ -13,7 +13,7 @@ pipeline {
       }
       stage('Testing') {
           steps {
-            sh 'robot -d ./logs -i success_login -v browser:headless tests\'
+            sh 'robot -d ./logs -v browser:headless tests/'
           }
           post {
              always {
