@@ -10,12 +10,19 @@ Library     SeleniumLibrary
 Open Chrome
         Open Browser        https://site.stage.rentcars.com     chrome    options=add_experimental_option('excludeSwitches', ['enable-logging'])
 
-
+Open Chrome Headless
+        Open Browser        https://site.stage.rentcars.com     headlesschrome
 
 ##Hooks
 
 Open Session 
-        Open Chrome
+
+        Run Keyword If          "${browser}" == "chrome"
+        ...     Open Chrome
+
+        Run Keyword If          "${browser}" == "headless"
+        ...     Open Chrome Headless
+        
          Set Window Size     1440    900
         Set Selenium Implicit Wait              6
 Login Session
