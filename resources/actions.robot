@@ -32,7 +32,7 @@ Login Session
         Click Element       xpath://*[@id="dropdown-offline"]
         Input Text          //input[@name='Email']      ${email}
         Input Text          //input[@name='Senha']      ${senha}
-        Click Button       //input[@value='Entrar']
+        Click Element       //*[@id="clientLogin"]/div[1]/div[2]/div/div/div[2]/div/ul/li[5]/form/div[3]/input
 
 
 
