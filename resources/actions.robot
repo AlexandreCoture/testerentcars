@@ -66,7 +66,7 @@ Confirma Destino
 
 ##Steps
 Dado que acesso a home do sistema
-        Go To   https://site.stage.rentcars.com
+        Go To   https://site.stage.rentcars.com/pt-br
         ##COMANDO PARA FAZER SCROLL
         Execute Javascript    $(document).scrollTop(${2800})
 
