@@ -8,10 +8,10 @@ Library     SeleniumLibrary
 ##Helpers
 
 Open Chrome
-        Open Browser        https://site.stage.rentcars.com/pt-br/     chrome    options=add_experimental_option('excludeSwitches', ['enable-logging'])
+        Open Browser        https://rentcars.com/pt-br/     chrome    options=add_experimental_option('excludeSwitches', ['enable-logging'])
 
 Open Chrome Headless
-        Open Browser        https://site.stage.rentcars.com/pt-br/     headlesschrome
+        Open Browser        https://rentcars.com/pt-br/     headlesschrome
 
 ##Hooks
 
@@ -29,11 +29,12 @@ Login Session
         [Arguments]            ${email}         ${senha}
         Open Session
        ##Go To   https://www.rentcars.com/pt-br/
-        Click Element       xpath://*[@id="dropdown-offline"]
+       sleep                    2
+        Click Element       xpath://*[@id="dropdown-lang"]
         Input Text          //input[@name='Email']      ${email}
         Input Text          //input[@name='Senha']      ${senha}
-        Click Element       //*[@id="clientLogin"]/div[1]/div[2]/div/div/div[2]/div/ul/li[5]/form/div[3]/input
-
+        Sleep                   3
+        Click Element           xpath//*[@value="Entrar" and @type="submit"]
 
 
 Close Session 
@@ -66,14 +67,17 @@ Confirma Destino
 ##Steps
 Dado que acesso a home do sistema
         Go To   https://site.stage.rentcars.com
+        ##COMANDO PARA FAZER SCROLL
+        Execute Javascript    $(document).scrollTop(${2800})
 
 
 Quando submeto minhas credenciais para login "${email}" e "${senha}"
-        Click Element       xpath://*[@id="dropdown-offline"]
-        Input Text          //input[@name='Email']      ${email}
-        Input Text          //input[@name='Senha']      ${senha}
+        Sleep                 5          
+        Click Link       xpath=//a[@href="https://site.stage.rentcars.com/pt-br/cliente/minha-conta"]
+        Input Text          //*[@id="formLogin"]/div[1]/div[1]/div/input    ${email}
+        Input Text          //*[@id="Senha"]      ${senha}
         Sleep                   2
-        Click Element       //input[@value='Entrar']
+        Click Element    //*[@id="submitLogin"]
 
 Então devo ser autenticado
         Wait Until Page Contains        Alexandre!
